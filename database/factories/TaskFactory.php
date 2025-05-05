@@ -19,7 +19,7 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->sentence(mt_rand(2, 4)),
             'body' => $this->faker->sentence(),
             'user_id' => mt_rand(1, 20),
             'status' => $this->faker->randomElement([0, 1]),
