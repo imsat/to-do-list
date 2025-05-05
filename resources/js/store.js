@@ -34,7 +34,6 @@ export const useAppStore = defineStore('app', {
                     set('user', user)
                     this.user = user;
                     this.isLoggedIn = token
-                    this.loginForm = {}
                     router.push('/')
                 }).catch(errors => {
                     console.log(errors)

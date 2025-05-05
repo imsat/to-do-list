@@ -33,16 +33,8 @@ onUnmounted(() => {
                         <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mountain-snow"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24 1.41 5.24 1.41 2.62-1.57 5.24 1.41 5.24 1.41 2.62-1.57 5.24 1.41 5.24 1.41"/></svg>
                         </div>
-                        <h1 class="ml-2 text-xl font-bold text-gray-900">Spire</h1>
+                        <h1 class="ml-2 text-xl font-bold text-gray-900">I-Task</h1>
                     </router-link>
-
-                    <!-- Navigation Links (only visible when logged in) -->
-                    <div v-if="isLoggedIn" class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <a href="#" class="inline-flex items-center border-b-2 border-emerald-500 px-1 pt-1 text-sm font-medium text-gray-900">Dashboard</a>
-                        <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Tasks</a>
-                        <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Team</a>
-                        <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Reports</a>
-                    </div>
                 </div>
 
                 <!-- Right side buttons -->
@@ -102,87 +94,6 @@ onUnmounted(() => {
                             </button>
                         </div>
                     </div>
-
-                    <!-- Mobile menu button -->
-                    <div v-if="isLoggedIn" class="-mr-2 ml-6 flex items-center sm:hidden">
-                        <button
-                            @click="mobileMenuOpen = !mobileMenuOpen"
-                            type="button"
-                            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                            aria-controls="mobile-menu"
-                            aria-expanded="false"
-                        >
-                            <span class="sr-only">Open main menu</span>
-                            <svg
-                                v-if="!mobileMenuOpen"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-menu"
-                            >
-                                <line x1="4" x2="20" y1="12" y2="12"/>
-                                <line x1="4" x2="20" y1="6" y2="6"/>
-                                <line x1="4" x2="20" y1="18" y2="18"/>
-                            </svg>
-                            <svg
-                                v-else
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-x"
-                            >
-                                <path d="M18 6 6 18"/>
-                                <path d="m6 6 12 12"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile menu, show/hide based on menu state -->
-        <div v-if="isLoggedIn && mobileMenuOpen" class="sm:hidden" id="mobile-menu">
-            <div class="space-y-1 pb-3 pt-2">
-                <a href="#" class="block border-l-4 border-emerald-500 bg-emerald-50 py-2 pl-3 pr-4 text-base font-medium text-emerald-700">Dashboard</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Projects</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Team</a>
-                <a href="#" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">Reports</a>
-            </div>
-            <div class="border-t border-gray-200 pb-3 pt-4">
-                <div class="flex items-center px-4">
-                    <div class="flex-shrink-0">
-                        <img
-                            class="h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="User profile"
-                        />
-                    </div>
-                    <div class="ml-3">
-                        <div class="text-base font-medium text-gray-800">{{ user?.name }}</div>
-                        <div class="text-sm font-medium text-gray-500">{{ user?.email }}</div>
-                    </div>
-                </div>
-                <div class="mt-3 space-y-1">
-                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800">Your Profile</a>
-                    <a href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800">Settings</a>
-                    <button
-                        @click="store.logout"
-                        class="block w-full px-4 py-2 text-left text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                    >
-                        Sign out
-                    </button>
                 </div>
             </div>
         </div>

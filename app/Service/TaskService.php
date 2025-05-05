@@ -15,7 +15,9 @@ class TaskService
     public function taskList($request)
     {
         $limit = $request->get('limit', 10);
+        $status = $request->get('status');
         $tasks = Task::where('user_id', auth()->id())
+            ->when(!blank($status), fn($q) => $q->where('status', $status))
             ->select(['id', 'title', 'body', 'status', 'created_at'])
             ->latest('id')
             ->cursorPaginate($limit);

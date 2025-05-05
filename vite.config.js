@@ -12,6 +12,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    define: {
+        '__APP_URL__': JSON.stringify(process.env.APP_URL),
+    },
     resolve: {
         alias: {
             '@': '/resources/js',
