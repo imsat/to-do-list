@@ -1,12 +1,15 @@
 <script setup>
 import {useAppStore} from "../store.js";
-import {useRouter} from 'vue-router';
 import {storeToRefs} from "pinia";
 import Validation from "../components/Validation.vue";
+import {onMounted} from "vue";
 
-const router = useRouter();
 const store = useAppStore()
 const {registerForm} = storeToRefs(store)
+
+onMounted(() => {
+    store.errors = []
+})
 </script>
 
 <template>
@@ -55,7 +58,7 @@ const {registerForm} = storeToRefs(store)
 
                 <button
                     type="submit"
-                    class="w-full rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                    class="w-full rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer"
                 >
                     Sign up
                 </button>

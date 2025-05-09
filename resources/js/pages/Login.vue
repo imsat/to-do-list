@@ -1,12 +1,15 @@
 <script setup>
 import {useAppStore} from "../store.js";
-import {useRouter} from 'vue-router';
 import {storeToRefs} from "pinia";
 import Validation from "../components/Validation.vue";
+import {onMounted} from "vue";
 
-const router = useRouter();
 const store = useAppStore()
 const {loginForm} = storeToRefs(store)
+
+onMounted(() => {
+    store.errors = []
+})
 </script>
 
 <template>
@@ -15,6 +18,7 @@ const {loginForm} = storeToRefs(store)
             <div class="mb-6 text-center">
                 <h2 class="text-2xl font-bold text-gray-900">Welcome back</h2>
                 <p class="text-sm text-gray-600">Sign in to your account</p>
+                <p class="text-sm text-red-500" v-if="store?.errors?.message">{{store?.errors?.message}}</p>
             </div>
 
             <form @submit.prevent="store.signIn" class="space-y-4">
@@ -59,7 +63,7 @@ const {loginForm} = storeToRefs(store)
 
                 <button
                     type="submit"
-                    class="w-full rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                    class="w-full rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 cursor-pointer"
                 >
                     Sign in
                 </button>

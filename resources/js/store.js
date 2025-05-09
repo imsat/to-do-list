@@ -36,8 +36,7 @@ export const useAppStore = defineStore('app', {
                     this.isLoggedIn = token
                     router.push('/')
                 }).catch(errors => {
-                    console.log(errors)
-                    this.errors = errors?.response?.data?.errors;
+                    this.errors = errors?.response?.data?.errors || errors?.response?.data;
                 })
         },
         async signUp() {
@@ -51,7 +50,7 @@ export const useAppStore = defineStore('app', {
                     router.push('/')
                 }).catch(errors => {
                     console.log(errors)
-                    this.errors = errors?.response?.data?.errors;
+                    this.errors = errors?.response?.data?.errors || errors?.response?.data;
                 })
         },
         async logout() {

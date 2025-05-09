@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class="relative flex min-h-screen flex-col items-center justify-center px-4 py-12 text-center">
+    <section class="relative flex flex-col items-center justify-center px-4 py-12 text-center min-h-[calc(100vh-64px)]">
         <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white to-gray-100"></div>
         <!-- Logo -->
         <div class="mb-8 flex items-center justify-center">

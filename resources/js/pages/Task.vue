@@ -151,7 +151,7 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="min-h-screen bg-gray-100 py-8">
+    <div class="bg-gray-100 py-8 min-h-[calc(100vh-64px)]">
         <div class="mx-auto max-w-md px-4 sm:px-6">
             <div class="rounded-xl bg-white p-6 shadow-md">
                 <!-- Header -->
